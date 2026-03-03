@@ -15,6 +15,7 @@ async def lifespan(app: FastAPI):
     tts = Qwen3TTSModel.from_pretrained(
         "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
         dtype=torch.bfloat16,
+        device_map="cuda",
         attn_implementation="sdpa"
     )
     app.state.tts = tts

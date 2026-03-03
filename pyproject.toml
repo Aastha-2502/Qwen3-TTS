@@ -30,6 +30,7 @@ dependencies = [
   "onnxruntime",
   "einops",
   "fastapi",
+  "logging>=0.4.9.6",
 ]
 
 [project.urls]
