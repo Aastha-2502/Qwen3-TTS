@@ -1,8 +1,14 @@
+import logging
 import torch
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from qwen_tts import Qwen3TTSModel
-from services.voice_clone import router as voice_clone_router 
+from services.voice_clone import router as voice_clone_router
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s — %(message)s",
+)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

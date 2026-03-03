@@ -60,7 +60,7 @@ async def clone_single(
             raise ValueError("Uploaded ref_audio file is empty.")
 
         ref_buffer = io.BytesIO(ref_audio_bytes)
-        audio_array, sample_rate = sf.read(ref_buffer)
+        audio_array, sample_rate = sf.read(ref_buffer, dtype="float32")
         logger.info("Ref audio loaded | sr=%d | shape=%s | dtype=%s", sample_rate, audio_array.shape, audio_array.dtype)
 
         # Pre-convert stereo → mono to avoid Qwen3-TTS internal bug
